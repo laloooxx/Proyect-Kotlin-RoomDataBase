@@ -60,9 +60,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //establecemos el contenido de la actividad
         setContent {
             ProbandoCargandoContenidosDeUnaBdTheme {
-                // A surface container using the 'background' color from the theme
+                //aplicamos el color al fondo
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -77,16 +78,24 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Crud() {
+    //obtenemos el LocalViewModelStoreOwner actual del contexto de la composicion, q este es el responsable de la
+    //creacion y almacenamiento del viewmodel
     val owner = LocalViewModelStoreOwner.current
+    //consultamos si no es nulo owner, si no lo es ejecutamos el codigo de let
     owner?.let {
+        //creamos una instancia de viewmodel usando la fun de jetpack compose viewmodel()
         val viewModel: NoteViewModel = viewModel(
+            //aca proporcionamos el contexto necesario para crear el viewmodel
             it,
+            //el identificador
             "NoteViewModel",
+            //usamos el patron factory para crear una instancia de noteviewmodel y le pasamos como parametro el "application"
             NoteViewModelFactory(
                 LocalContext.current.applicationContext
                         as Application
             )
         )
+        //llamamos a la funcion crudscreensetup y le pasamos el viewmodel, para configurar la pantalla del crud
         CrudScreenSetUp(viewModel)
     }
 }
@@ -103,9 +112,11 @@ fun CrudScreenSetUp(viewModel: NoteViewModel) {
     // reales están siendo cargados
     val all by viewModel.allNotes.observeAsState(listOf() )
 
+    //utilizamos esta variable para mostrar msjs de retroaalimentacion
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
+    //manejamos los eventos
     LaunchedEffect(snackbarHostState) {
         viewModel.eventFlow.collectLatest { event ->
             when (event) {
@@ -135,6 +146,7 @@ fun CrudScreenSetUp(viewModel: NoteViewModel) {
         }
     }
 
+    //usamos el diseño scaffold para agregar notas y mostrar mensajes
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -169,6 +181,7 @@ fun CrudScreen(
     onEvent: (Event) -> Unit,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
+        //mostramos una lista de notas y q cada nota tenga sus botones de eliminar y editar
         LazyColumn {
             items(all) { note ->
                 ListItem(
