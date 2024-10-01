@@ -1,4 +1,5 @@
 Aplicación de Notas en Kotlin
+
 Este es un proyecto de aplicación de notas desarrollado en Kotlin para dispositivos Android, utilizando Room como base de datos local y los patrones de diseño DAO, Repository y Singleton para la gestión de datos. 
 La aplicación permite a los usuarios crear, editar, eliminar y listar notas.
 
