@@ -24,7 +24,7 @@ NoteViewModel: Clase que maneja la lógica de la aplicación. Mantiene la inform
 
 MainActivity y CrudScreen: Interfaz de usuario construida utilizando Jetpack Compose, permitiendo al usuario interactuar con las notas mediante un diseño moderno y reactivo.
 
-Requisitos Previos
+Requisitos Previos: 
 Android Studio 4.0 o superior.
 Kotlin 1.4 o superior.
 Conexión a internet para descargar dependencias.
@@ -34,7 +34,7 @@ Clona este repositorio en tu máquina local
 Abre el proyecto en Android Studio.
 Ejecuta la aplicación en un emulador o dispositivo físico.
 
-Tecnologías Utilizadas
+Tecnologías Utilizadas: 
 Kotlin: Lenguaje de programación principal.
 Room: ORM para Android que facilita el manejo de la base de datos.
 Coroutines: Para realizar operaciones de base de datos de manera asíncrona.
@@ -42,31 +42,16 @@ LiveData: Observa los cambios en la base de datos y actualiza la UI automáticam
 Jetpack Compose: Para la interfaz de usuario declarativa.
 MVVM: Patrón de arquitectura para mantener la separación de responsabilidades.
 
-com.example.probandocargandocontenidosdeunabd
-│
-├── db
-│   ├── NoteDataBase.kt        // Definición de la base de datos Room
-│   ├── model
-│   │   └── Note.kt            // Definición de la entidad Note
-│   └── NotesDao.kt            // Interfaz DAO para la gestión de las notas
-│
-├── repository
-│   └── NotesRepository.kt     // Repositorio para interactuar con el DAO
-│
-├── ui
-│   ├── model
-│   │   ├── NoteViewModel.kt       // ViewModel para gestionar las notas
-│   │   └── NoteViewModelFactory.kt // Factory para crear instancias del ViewModel
-│   └── MainActivity.kt        // Actividad principal de la aplicación
-│
-└── components
-    └── CrudScreen.kt          // Pantalla que muestra las notas y permite CRUD
 
 Cómo Usar la Aplicación
+
 Crear una nota: Pulsa el botón flotante (+) para abrir el cuadro de diálogo y escribir el contenido de la nueva nota.
+
 Editar una nota: Haz clic en el ícono de edición junto a la nota que deseas modificar.
+
 Eliminar una nota: Pulsa el ícono de eliminación junto a la nota que deseas borrar.
+
 Visualizar todas las notas: Todas las notas se muestran en la pantalla principal, y la lista se actualiza automáticamente cuando se añaden, editan o eliminan notas.
 
-Contribuciones
+Contribuciones: 
 Las contribuciones son bienvenidas. Por favor, abre un "issue" para discutir cualquier cambio importante antes de realizar una "pull request".
