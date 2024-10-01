@@ -29,7 +29,7 @@ Android Studio 4.0 o superior.
 Kotlin 1.4 o superior.
 Conexión a internet para descargar dependencias.
 
-Instalación
+Instalación: 
 Clona este repositorio en tu máquina local
 Abre el proyecto en Android Studio.
 Ejecuta la aplicación en un emulador o dispositivo físico.
